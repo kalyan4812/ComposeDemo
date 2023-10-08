@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import com.example.composedemo.ui_blocks.ConstraintComposeCard
 
 
@@ -20,6 +21,7 @@ class TestFragment : androidx.fragment.app.Fragment() {
     ): View {
         val view = ComposeView(requireContext())
         view.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 Column {
                     LazyColumn {
